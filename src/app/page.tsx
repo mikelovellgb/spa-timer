@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div style={{ width: '100vw', height: '100vh', background: 'white' }}>
+    <div style={{ width: '100vw', height: '100vh', background: 'black' }}>
       <main style={{ width: '100vw', height: '100vh' }}>
         <TimerFlip />
       </main>

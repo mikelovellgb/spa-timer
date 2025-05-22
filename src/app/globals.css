@@ -28,3 +28,21 @@ body {
 .tick-credits {
   display: none !important;
 }
+
+/* Custom style for Tick/Flip: white panels, dark digits */
+.custom-flip-dark .tick-flip-panel {
+  background: #fff !important;
+  color: #111 !important;
+  border: 2px solid #444 !important;
+}
+.custom-flip-dark .tick-flip-panel__top,
+.custom-flip-dark .tick-flip-panel__bottom {
+  background: #fff !important;
+  color: #111 !important;
+}
+.custom-flip-dark .tick-flip-panel__shadow {
+  background: #eee !important;
+}
+.custom-flip-dark .tick-flip-digit {
+  color: #111 !important;
+}

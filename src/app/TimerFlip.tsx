@@ -85,28 +85,73 @@ export default function TimerFlip() {
   }, [seconds]); 
 
   return (
-    <div style={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      {!tickLoaded && (
-        <div style={{ textAlign: 'center', fontSize: '5vw', fontWeight: 'bold' }}>
-          Loading timer...
+    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+      {/* Centered logo, only visible when timer is zero */}
+      <div
+        style={{
+          display: seconds === 0 ? 'flex' : 'none',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100vw',
+          height: '100vh',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          background: 'black',
+          zIndex: 2,
+        }}
+      >
+        <img
+          src="/xf_gym_logo.jpg"
+          alt="Logo"
+          style={{
+            maxWidth: '40vw',
+            maxHeight: '40vh',
+            objectFit: 'contain',
+            display: 'block',
+            margin: '0 auto',
+          }}
+        />
+      </div>
+
+      {/* Timer/room layout, only visible when timer is running */}
+      <div
+        style={{
+          display: seconds > 0 ? 'flex' : 'none',
+          flexDirection: 'row',
+          alignItems: 'center',
+          width: '100vw',
+          height: '100vh',
+          justifyContent: 'center',
+          background: 'black',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 1,
+        }}
+      >
+        {/* Left column: logo and room name, room name right-aligned and vertically centered between logo and timer */}
+        <div style={{
+          display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center',
+          width: '22vw', minWidth: '18vw', maxWidth: '30vw', paddingRight: '2vw',
+        }}>
+          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '18vw', maxHeight: '18vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
+          <div style={{
+            fontSize: '2vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
+          }}>{roomName}</div>
         </div>
-      )}
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '4vw' }}>
-          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '18vw', maxHeight: '18vh', objectFit: 'contain', display: 'block' }} />
-          <div style={{ marginTop: '2vh', fontSize: '2vw', fontWeight: 'bold', textAlign: 'center', color: 'green' }}>{roomName}</div>
-        </div>
+        {/* Timer */}
         <div
           ref={tickRef}
-          className="tick"
+          className="tick custom-flip-dark"
           style={{
             display: tickLoaded ? 'block' : 'none',
-            fontSize: '9vw', // Responsive: 9% of viewport width (smaller)
+            fontSize: '9vw',
             minWidth: '20vw',
             maxWidth: '60vw',
             minHeight: '12vh',
             maxHeight: '24vh',
-            margin: '0 auto',
+            marginLeft: '4vw',
           }}
         >
           <div data-repeat="true" aria-hidden="true">
