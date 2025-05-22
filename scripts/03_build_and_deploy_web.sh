@@ -16,6 +16,9 @@ if [ -d .git ]; then
   git fetch origin
   git reset --hard origin/main
   git pull
+  # Ensure all scripts are executable after pulling
+  echo "Making all scripts in ./scripts executable..."
+  chmod +x ./scripts/*.sh
 else
   echo "No git repository found. Skipping git pull."
 fi
