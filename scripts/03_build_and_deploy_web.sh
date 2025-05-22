@@ -44,10 +44,10 @@ fi
 
 echo "Build complete!"
 
-# If room.json exists in the root, copy it to public/ and overwrite
-if [ -f "${HOME}/spa-timer/room.json" ]; then
-  echo "Copying room.json to public/ (overwriting if exists)..."
-  cp -f "${HOME}/spa-timer/room.json" "${HOME}/spa-timer/public/room.json"
+# If room.json exists in the user's home directory, copy it to public/ and overwrite
+if [ -f "${HOME}/room.json" ]; then
+  echo "Copying ~/room.json to public/ (overwriting if exists)..."
+  cp -f "${HOME}/room.json" "${HOME}/spa-timer/public/room.json"
 fi
 
 # -------------------------------------------------------------------
