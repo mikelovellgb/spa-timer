@@ -131,7 +131,7 @@ export default function TimerFlip() {
         }}>
           <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '30vw', maxHeight: '30vh', minWidth: '30vw', minHeight: '30vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
           <div style={{
-            fontSize: '2vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
+            fontSize: '2.4vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
           }}>{roomName}</div>
         </div>
         {/* Timer */}
