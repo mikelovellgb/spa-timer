@@ -110,6 +110,8 @@ export default function TimerFlip() {
           style={{
             maxWidth: '40vw',
             maxHeight: '40vh',
+            minWidth: '30vw',
+            minHeight: '30vh',
             objectFit: 'contain',
             display: 'block',
             margin: '0 auto',
@@ -127,7 +129,7 @@ export default function TimerFlip() {
           display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center',
           width: '22vw', minWidth: '18vw', maxWidth: '30vw', paddingRight: '2vw',
         }}>
-          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '18vw', maxHeight: '18vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
+          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '30vw', maxHeight: '30vh', minWidth: '30vw', minHeight: '30vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
           <div style={{
             fontSize: '2vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
           }}>{roomName}</div>
