@@ -10,6 +10,7 @@ export default function TimerFlip() {
   const [paused, setPaused] = useState<boolean>(false);
   const [tickLoaded, setTickLoaded] = useState<boolean>(false);
   const [roomName, setRoomName] = useState<string>("");
+  const [defaultMinutes, setDefaultMinutes] = useState<number | null>(null);
 
   async function fetchTime() {
     const res = await fetch('/api/timer');
@@ -24,11 +25,24 @@ export default function TimerFlip() {
     return () => clearInterval(interval);
   }, []);
 
+  // Load room.json and set roomName and defaultMinutes
   useEffect(() => {
     fetch('/room.json')
       .then((res) => res.json())
-      .then((data) => setRoomName(data.roomName || ''));
+      .then((data) => {
+        setRoomName(data.roomName || '');
+        if (typeof data.defaultMinutes === 'number' && !isNaN(data.defaultMinutes)) {
+          setDefaultMinutes(data.defaultMinutes);
+        }
+      });
   }, []);
+
+  // On mount, if defaultMinutes is set, reset timer to that value (in a stopped state)
+  useEffect(() => {
+    if (defaultMinutes !== null) {
+      fetch(`/api/timer?reset=${defaultMinutes}`);
+    }
+  }, [defaultMinutes]);
 
   useEffect(() => {
     let isMounted = true;

@@ -1,3 +1,4 @@
 {
-  "roomName": "DEFAULT ROOM"
+  "roomName": "DEFAULT ROOM",
+  "defaultMinutes": 15
 }
