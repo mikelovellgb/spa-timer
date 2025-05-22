@@ -152,7 +152,7 @@ export default function TimerFlip() {
         }}>
           <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '30vw', maxHeight: '30vh', minWidth: '30vw', minHeight: '30vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
           <div style={{
-            fontSize: '2.4vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
+            fontSize: '2.9vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
           }}>{roomName}</div>
         </div>
         {/* Timer */}
@@ -163,11 +163,11 @@ export default function TimerFlip() {
             display: tickLoaded ? 'flex' : 'none',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '9vw',
-            minWidth: '20vw',
-            maxWidth: '60vw',
-            minHeight: '12vh',
-            maxHeight: '24vh',
+            fontSize: '10vw',
+            minWidth: '30vw',
+            maxWidth: '70vw',
+            minHeight: '18vh',
+            maxHeight: '38vh',
             marginLeft: '4vw',
           }}
         >
