@@ -145,14 +145,14 @@ export default function TimerFlip() {
         className={styles.timerRoomLayout}
         style={{ display: (seconds > 0 && !paused) ? 'flex' : 'none', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', background: 'black', zIndex: 1 }}
       >
-        {/* Left column: logo and room name, room name right-aligned and vertically centered between logo and timer */}
+        {/* Left column: logo and room name, now centered and logo larger */}
         <div style={{
-          display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center',
-          width: '22vw', minWidth: '18vw', maxWidth: '30vw', paddingRight: '2vw',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          width: '28vw', minWidth: '22vw', maxWidth: '38vw', paddingRight: '2vw',
         }}>
-          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '30vw', maxHeight: '30vh', minWidth: '30vw', minHeight: '30vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
+          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '38vw', maxHeight: '38vh', minWidth: '32vw', minHeight: '32vh', objectFit: 'contain', display: 'block', marginBottom: '2vh' }} />
           <div style={{
-            fontSize: '2.9vw', fontWeight: 'bold', textAlign: 'right', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
+            fontSize: '3.5vw', fontWeight: 'bold', textAlign: 'center', color: '#44ff68', width: '100%', paddingRight: '0.5vw',
           }}>{roomName}</div>
         </div>
         {/* Timer */}
