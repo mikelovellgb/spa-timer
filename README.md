@@ -60,6 +60,14 @@ This will:
 - Rebuild the Next.js app
 - Restart the systemd service
 
+It is recommended to run:
+
+```sh
+sudo reboot
+```
+
+after updating, to ensure all services and kiosk settings are fully applied.
+
 ---
 
 ## Usage
