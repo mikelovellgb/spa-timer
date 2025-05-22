@@ -80,9 +80,9 @@ after updating, to ensure all services and kiosk settings are fully applied.
 - **Reset the timer:**
   - `http://<ip>:3000/api/timer?reset=<minutes>` — Resets the timer to the specified number of minutes and pauses the timer (timer will not start automatically after reset).
 - **Start the timer:**
-  - `http://<ip>:3000/api/timer?start=1` — Starts or resumes the timer if it is paused.
+  - `http://<ip>:3000/api/timer?start` — Starts or resumes the timer if it is paused.
 - **Pause/Stop the timer:**
-  - `http://<ip>:3000/api/timer?stop=1` — Pauses the timer (the remaining time is preserved).
+  - `http://<ip>:3000/api/timer?stop` — Pauses the timer (the remaining time is preserved).
 - **Get timer state:**
   - `http://<ip>:3000/api/timer` — Returns the current timer state as JSON (remaining seconds and paused status).
 
