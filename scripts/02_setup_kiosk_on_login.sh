@@ -13,6 +13,10 @@
 
 set -euo pipefail
 
+# 0) (Optional) Enable Wayland if on Raspberry Pi OS (for kiosk stability)
+echo "Enabling Wayland (raspi-config nonint do_wayland W1)..."
+sudo raspi-config nonint do_wayland W1  # Enable Wayland for kiosk mode (if supported)
+
 # Determine deploy user & home directory
 dep_user=""
 if [ "$EUID" -eq 0 ]; then
