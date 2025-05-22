@@ -1,6 +1,6 @@
 # Spa Timer
 
-This is a spa timer React application with reset hooks.
+A visually striking, API-controlled countdown timer for spas, gyms, or studios. Features a large animated mm:ss timer, custom logo, and room name, with a responsive layout for both standard and tall/narrow (panel) screens. The timer is controlled via simple HTTP API calls (reset, start, stop), and displays a full-screen logo when stopped or at zero. Designed for kiosk or wall display, with robust deployment and update scripts for unattended operation.
 
 ## Instructions to Deploy
 
