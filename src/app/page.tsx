@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black">
-      <main className="flex flex-col gap-8 items-center justify-center w-full">
+    <div style={{ width: '100vw', height: '100vh', background: 'white' }}>
+      <main style={{ width: '100vw', height: '100vh' }}>
         <TimerFlip />
       </main>
     </div>

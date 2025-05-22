@@ -7,6 +7,7 @@ export default function TimerFlip() {
   const tickInstance = useRef<unknown>(null);
   const [seconds, setSeconds] = useState<number>(0);
   const [tickLoaded, setTickLoaded] = useState<boolean>(false);
+  const [roomName, setRoomName] = useState<string>("");
 
   async function fetchTime() {
     const res = await fetch('/api/timer');
@@ -18,6 +19,12 @@ export default function TimerFlip() {
     fetchTime();
     const interval = setInterval(fetchTime, 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    fetch('/room.json')
+      .then((res) => res.json())
+      .then((data) => setRoomName(data.roomName || ''));
   }, []);
 
   useEffect(() => {
@@ -84,21 +91,27 @@ export default function TimerFlip() {
           Loading timer...
         </div>
       )}
-      <div
-        ref={tickRef}
-        className="tick"
-        style={{
-          display: tickLoaded ? 'block' : 'none',
-          fontSize: '9vw', // Responsive: 9% of viewport width (smaller)
-          minWidth: '20vw',
-          maxWidth: '60vw',
-          minHeight: '12vh',
-          maxHeight: '24vh',
-          margin: '0 auto',
-        }}
-      >
-        <div data-repeat="true" aria-hidden="true">
-          <span data-view="flip">Tick</span>
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '4vw' }}>
+          <img src="/xf_gym_logo.jpg" alt="Logo" style={{ maxWidth: '18vw', maxHeight: '18vh', objectFit: 'contain', display: 'block' }} />
+          <div style={{ marginTop: '2vh', fontSize: '2vw', fontWeight: 'bold', textAlign: 'center', color: 'green' }}>{roomName}</div>
+        </div>
+        <div
+          ref={tickRef}
+          className="tick"
+          style={{
+            display: tickLoaded ? 'block' : 'none',
+            fontSize: '9vw', // Responsive: 9% of viewport width (smaller)
+            minWidth: '20vw',
+            maxWidth: '60vw',
+            minHeight: '12vh',
+            maxHeight: '24vh',
+            margin: '0 auto',
+          }}
+        >
+          <div data-repeat="true" aria-hidden="true">
+            <span data-view="flip">Tick</span>
+          </div>
         </div>
       </div>
       {tickLoaded && !tickInstance.current && (
