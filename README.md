@@ -74,8 +74,24 @@ after updating, to ensure all services and kiosk settings are fully applied.
 
 - Access the timer in your browser:
   - `http://<ip>:3000` — Shows the timer UI
-- Reset the timer via API:
-  - `http://<ip>:3000/api/timer?reset=<minutes>` — Resets the timer to the specified number of minutes
+
+### Timer API
+
+- **Reset the timer:**
+  - `http://<ip>:3000/api/timer?reset=<minutes>` — Resets the timer to the specified number of minutes and pauses the timer (timer will not start automatically after reset).
+- **Start the timer:**
+  - `http://<ip>:3000/api/timer?start=1` — Starts or resumes the timer if it is paused.
+- **Pause/Stop the timer:**
+  - `http://<ip>:3000/api/timer?stop=1` — Pauses the timer (the remaining time is preserved).
+- **Get timer state:**
+  - `http://<ip>:3000/api/timer` — Returns the current timer state as JSON (remaining seconds and paused status).
 
 Replace `<ip>` with the IP address of your device and `<minutes>` with the number of minutes you want to set.
+
+### UI Behavior
+
+- The timer displays a large, centered countdown in mm:ss format when running.
+- When the timer reaches 0 seconds **or** is paused/stopped, the UI displays only the full-screen logo (no timer or room name).
+- The room name and logo are shown above the timer when the timer is running.
+- The UI is fully responsive and optimized for both standard and tall/narrow (panel) screens.
 
