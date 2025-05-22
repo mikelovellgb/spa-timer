@@ -1,11 +1,13 @@
 'use client';
 import '@pqina/flip/dist/flip.min.css';
 import { useEffect, useRef, useState } from 'react';
+import styles from './TimerFlip.module.css';
 
 export default function TimerFlip() {
   const tickRef = useRef<HTMLDivElement>(null);
   const tickInstance = useRef<unknown>(null);
   const [seconds, setSeconds] = useState<number>(0);
+  const [paused, setPaused] = useState<boolean>(false);
   const [tickLoaded, setTickLoaded] = useState<boolean>(false);
   const [roomName, setRoomName] = useState<string>("");
 
@@ -13,6 +15,7 @@ export default function TimerFlip() {
     const res = await fetch('/api/timer');
     const data = await res.json();
     setSeconds(data.remaining);
+    setPaused(!!data.paused);
   }
 
   useEffect(() => {
@@ -85,11 +88,11 @@ export default function TimerFlip() {
   }, [seconds]); 
 
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-      {/* Centered logo, only visible when timer is zero */}
+    <div style={{ width: '100vw', height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* Centered logo, only visible when timer is zero or paused */}
       <div
         style={{
-          display: seconds === 0 ? 'flex' : 'none',
+          display: (seconds === 0 || paused) ? 'flex' : 'none',
           alignItems: 'center',
           justifyContent: 'center',
           width: '100vw',
@@ -114,21 +117,10 @@ export default function TimerFlip() {
         />
       </div>
 
-      {/* Timer/room layout, only visible when timer is running */}
+      {/* Timer/room layout, only visible when timer is running and not paused */}
       <div
-        style={{
-          display: seconds > 0 ? 'flex' : 'none',
-          flexDirection: 'row',
-          alignItems: 'center',
-          width: '100vw',
-          height: '100vh',
-          justifyContent: 'center',
-          background: 'black',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          zIndex: 1,
-        }}
+        className={styles.timerRoomLayout}
+        style={{ display: (seconds > 0 && !paused) ? 'flex' : 'none', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', background: 'black', zIndex: 1 }}
       >
         {/* Left column: logo and room name, room name right-aligned and vertically centered between logo and timer */}
         <div style={{
@@ -145,7 +137,9 @@ export default function TimerFlip() {
           ref={tickRef}
           className="tick custom-flip-dark"
           style={{
-            display: tickLoaded ? 'block' : 'none',
+            display: tickLoaded ? 'flex' : 'none',
+            alignItems: 'center',
+            justifyContent: 'center',
             fontSize: '9vw',
             minWidth: '20vw',
             maxWidth: '60vw',

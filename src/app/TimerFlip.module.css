@@ -1,0 +1,23 @@
+.timerRoomLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: 1;
+}
+
+@media (max-width: 500px) {
+  .timerRoomLayout {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Remove left margin from timer, center everything */
+  }
+  /* Optionally adjust logo/room and timer sizes for panel screens */
+}
