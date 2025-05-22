@@ -2,7 +2,6 @@
 # 03_build_and_deploy_web.sh
 #
 # Builds and deploys the Spa Timer Next.js web app as a systemd service.
-# - Cleans previous build artifacts and dependencies
 # - Pulls latest code from git and ensures scripts are executable
 # - Installs npm dependencies
 # - Builds the Next.js app
@@ -17,10 +16,6 @@ set -euo pipefail
 
 # Always operate in the user's spa-timer directory
 cd "${HOME}/spa-timer"
-
-# Clean previous build artifacts and dependencies
-echo "Cleaning previous build artifacts and node_modules..."
-rm -rf node_modules .next
 
 # Pull latest code from git before building
 if [ -d .git ]; then
