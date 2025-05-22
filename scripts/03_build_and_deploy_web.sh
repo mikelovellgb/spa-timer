@@ -13,7 +13,7 @@ rm -rf node_modules .next
 # Pull latest code from git before building
 if [ -d .git ]; then
   echo "Pulling latest code from git..."
-  git pull --rebase
+  git pull
 else
   echo "No git repository found. Skipping git pull."
 fi
