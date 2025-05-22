@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
-# setup-kiosk.sh — configure Chromium kiosk and hide mouse pointer on GUI login via .desktop autostart + DietPi unclutter hack
+# 02_setup_kiosk_on_login.sh
+#
+# Sets up a kiosk environment for the Spa Timer web app.
+# - Installs Chromium browser and unclutter (if not present)
+# - Applies DietPi-specific hack for cursor hiding (if needed)
+# - Creates autostart entries for Chromium in kiosk mode and unclutter
+# - Ensures correct ownership of config files
+#
+# Usage: Run as the deploy user or with sudo. Designed for Raspberry Pi/Debian systems with a desktop environment.
+#
+# This script enables automatic launch of the timer app in fullscreen kiosk mode on login.
+
 set -euo pipefail
 
 # Determine deploy user & home directory
@@ -59,4 +70,4 @@ EOF
 # 5) Fix ownership
 sudo chown -R "${dep_user}:${dep_user}" "${user_home}/.config"
 
-echo "Kiosk setup complete. Reboot your Pi to apply changes (Chromium kiosk + hidden mouse cursor)."
+echo "Kiosk setup complete."

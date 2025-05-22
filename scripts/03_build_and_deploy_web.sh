@@ -1,6 +1,18 @@
-# build.sh
 #!/usr/bin/env bash
-# Builds the Next.js app in ~/spa-timer (clean before building)
+# 03_build_and_deploy_web.sh
+#
+# Builds and deploys the Spa Timer Next.js web app as a systemd service.
+# - Cleans previous build artifacts and dependencies
+# - Pulls latest code from git and ensures scripts are executable
+# - Installs npm dependencies
+# - Builds the Next.js app
+# - Creates/updates a systemd service for the app
+# - Enables and starts the service, showing status
+#
+# Usage: Run as the deploy user (with sudo for systemd steps). Assumes app is in ~/spa-timer.
+#
+# This script automates deployment and service management for the Spa Timer web app.
+
 set -euo pipefail
 
 # Always operate in the user's spa-timer directory
