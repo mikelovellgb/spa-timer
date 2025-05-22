@@ -92,6 +92,6 @@ Replace `<ip>` with the IP address of your device and `<minutes>` with the numbe
 
 - The timer displays a large, centered countdown in mm:ss format when running.
 - When the timer reaches 0 seconds **or** is paused/stopped, the UI displays only the full-screen logo (no timer or room name).
-- The room name and logo are shown above the timer when the timer is running.
+- When the timer is running, the room name and logo are shown to the left of the timer.
 - The UI is fully responsive and optimized for both standard and tall/narrow (panel) screens.
 
