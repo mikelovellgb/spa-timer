@@ -62,3 +62,12 @@ This will:
 
 ---
 
+## Usage
+
+- Access the timer in your browser:
+  - `http://<ip>:3000` — Shows the timer UI
+- Reset the timer via API:
+  - `http://<ip>:3000/api/timer?reset=<minutes>` — Resets the timer to the specified number of minutes
+
+Replace `<ip>` with the IP address of your device and `<minutes>` with the number of minutes you want to set.
+
