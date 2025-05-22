@@ -101,6 +101,13 @@ export default function TimerFlip() {
     }
   }, [seconds]); 
 
+  // When timer reaches zero, reset to defaultMinutes (if set)
+  useEffect(() => {
+    if (seconds === 0 && defaultMinutes !== null) {
+      fetch(`/api/timer?reset=${defaultMinutes}`);
+    }
+  }, [seconds, defaultMinutes]);
+
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {/* Centered logo, only visible when timer is zero or paused */}
