@@ -116,6 +116,7 @@ export default function TimerFlip() {
           display: (seconds === 0 || paused) ? 'flex' : 'none',
           alignItems: 'center',
           justifyContent: 'center',
+          flexDirection: 'column',
           width: '100vw',
           height: '100vh',
           position: 'absolute',
@@ -138,6 +139,14 @@ export default function TimerFlip() {
             margin: '0 auto',
           }}
         />
+        <div style={{
+          marginTop: '2vh',
+          fontSize: '3vw',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          color: '#44ff68',
+          width: '100%',
+        }}>{roomName}</div>
       </div>
 
       {/* Timer/room layout, only visible when timer is running and not paused */}
